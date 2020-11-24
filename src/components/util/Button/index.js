@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'reactstrap';
+import { Button } from 'react-bootstrap';
 
 
 const PrimaryButton = ({onClick, block, children, disabled, color}) => {

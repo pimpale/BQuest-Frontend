@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, FormGroup, Label } from 'reactstrap';
+import { Input, FormGroup, Label } from 'react-bootstrap';
 import Button from '../../util/Button';
 
 class LoginForm extends React.Component {

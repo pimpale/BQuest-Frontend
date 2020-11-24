@@ -1,10 +1,10 @@
 all: build
 
 build:
-	npm run build
+	yarn run build
 
 dev:
-	WEBPACK=1 NODE_ENV=development npm run build-dev
+	WEBPACK=1 NODE_ENV=development yarn run build-dev
 
 build_image:
 	docker build -t bquest/frontend .

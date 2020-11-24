@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
 
-import { Collapse, Button, CardBody, Card, Alert } from 'reactstrap';
+import { Collapse, Button, CardBody, Card, Alert } from 'react-bootstrap';
 
 const styles = {
   toggle: {

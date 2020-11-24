@@ -4,7 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ChipInput from 'material-ui-chip-input';
 import Chip from 'material-ui/Chip';
 
-import { Button, Input, FormGroup, Label, InputGroup } from 'reactstrap';
+import { Button, Input, FormGroup, Label, InputGroup } from 'react-bootstrap';
 
 import majors from '../../../majors.json';
 

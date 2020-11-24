@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import { Button } from 'reactstrap';
+import { Button } from 'react-bootstrap';
 
 const styles = {
     textareaStyle: {

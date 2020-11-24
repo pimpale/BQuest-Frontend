@@ -9,7 +9,7 @@ import MenuItem from 'material-ui/MenuItem';
 import ChipInput from 'material-ui-chip-input';
 import Chip from 'material-ui/Chip';
 
-import { Button, Input, Alert} from 'reactstrap';
+import { Button, Input, Alert} from 'react-bootstrap';
 
 import classNames from 'classnames';
 import { isatty } from 'tty';

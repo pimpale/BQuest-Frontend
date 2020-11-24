@@ -2,7 +2,6 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -20,47 +19,40 @@ module.exports = {
   },
   module: {
     rules: [
+      // sass + css rules from here:
+      // https://github.com/webpack-contrib/mini-css-extract-plugin
       {
-        test: /\.s?css$/,
-        use: [{
-          loader: 'style-loader'
-        }, {
-          loader: 'css-loader'
-        }, {
-          loader: 'sass-loader'
-        }]
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
       {
-        test: /\.js$/,
-        use: [{loader: "babel-loader"}],
+        test: /\.(js|jsx)$/,
+        use: ["babel-loader"],
       },
       {
         test: /\.(pdf|jpg|png|gif|ico|svg)$/,
         use: [
-            {
-                loader: 'url-loader',
-                options: {
-                  limit: 100000
-                }
-            },
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 100000
+            }
+          },
         ]
       },
-		{
-			test: /\.(otf)$/,
-			use: [
-				{
-					loader: 'file-loader',
-				}
-			]
-		},
-		{
-			test: /\.svg\.inline$/,
-			use: [
-				{
-					loader: 'svg-inline-loader',
-				}
-			]
-		}
+      {
+        test: /\.svg\.inline$/,
+        use: [
+          {
+            loader: 'svg-inline-loader',
+          }
+        ]
+      }
     ],
   },
   devtool: 'eval-source-map',
@@ -74,7 +66,6 @@ module.exports = {
         'WEBPACK': JSON.stringify(process.env.WEBPACK || ''),
       }
     }),
-    new ExtractTextPlugin('build/[name].css'),
     new webpack.HotModuleReplacementPlugin()
   ],
   watchOptions: {

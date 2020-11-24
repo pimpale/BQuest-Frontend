@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, FormGroup, Label } from 'reactstrap';
+import { Input, FormGroup, Label } from 'react-bootstrap';
 import Button from 'components/util/Button';
 import { withRouter } from "react-router-dom";
 import { parse } from 'qs';

@@ -2,7 +2,7 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ProfilePicture from '../../profilePicture';
 
-import { FormGroup, Input, Label } from 'reactstrap';
+import { FormGroup, Input, Label } from 'react-bootstrap';
 
 class GeneralProfile extends React.Component {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import { Button, ButtonGroup } from 'reactstrap';
+import { Button, ButtonGroup } from 'react-bootstrap';
 
 class SearchBar extends Component {
     state = {
