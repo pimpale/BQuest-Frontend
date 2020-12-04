@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, FormGroup, Label } from 'react-bootstrap';
+import {Form } from 'react-bootstrap';
 import Button from 'components/util/Button';
 import { withRouter } from "react-router-dom";
 import { parse } from 'qs';
@@ -55,15 +55,15 @@ class ResetPasswordForm extends React.Component {
         return(
             <div>
                 <div className="login-form">
-                    <FormGroup className="form-group">
-                        <Label className="label">New password</Label>
-                        <Input className="inline-input" type="password" name="password" id="password1" placeholder="password" onChange={this.handleChange} />
-                    </FormGroup>
+                    <Form.Group className="form-group">
+                        <Form.Label className="label">New password</Form.Label>
+                        <Form.Control className="inline-input" type="password" name="password" id="password1" placeholder="password" onChange={this.handleChange} />
+                    </Form.Group>
 
-                    <FormGroup className="form-group">
-                        <Label className="label">Re-enter password</Label>
-                        <Input className="inline-input" type="password" name="repeatPassword" id="password2" placeholder="password" onChange={this.handleChange} />
-                    </FormGroup>
+                    <Form.Group className="form-group">
+                        <Form.Label className="label">Re-enter password</Form.Label>
+                        <Form.Control className="inline-input" type="password" name="repeatPassword" id="password2" placeholder="password" onChange={this.handleChange} />
+                    </Form.Group>
                 </div>
                 <Button className="login-button" onClick={this._action} disabled={disabled} block>{this.props.buttonText}</Button>
             </div>

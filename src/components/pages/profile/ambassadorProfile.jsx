@@ -1,10 +1,9 @@
 import React from 'react';
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import ChipInput from 'material-ui-chip-input';
-import Chip from 'material-ui/Chip';
+import MuiThemeProvider from '@material-ui/styles/MuiThemeProvider';
+import Chip from '@material-ui/core/Chip';
 
-import { Button, Input, FormGroup, Label, InputGroup } from 'react-bootstrap';
+import { Button, Form, } from 'react-bootstrap';
 
 import majors from '../../../majors.json';
 
@@ -246,7 +245,7 @@ class AmbassadorProfile extends React.Component {
     renderBio = () => {
         return (
             <div className="add-bio">
-                <Input type="textarea" onBlur={() => this._updateBio()}  onChange={e => this.setState({bio: e.target.value})} value={this.state.bio} name="bio" id="bio" />
+                <Form.Control type="textarea" onBlur={() => this._updateBio()}  onChange={e => this.setState({bio: e.target.value})} value={this.state.bio} name="bio" id="bio" />
             </div>
         );
     }
@@ -300,8 +299,8 @@ class AmbassadorProfile extends React.Component {
     renderSingleMajor = (majorName, index) => {
         return (
             <div className="select-entry" key={index}>
-                <InputGroup>
-                    <Input type="select"
+                <Form.ControlGroup>
+                    <Form.Control type="select"
                            value={majorName || ''}
                            onChange={({ target }) => {
                                this._updateMajor(target.value, index);
@@ -312,11 +311,11 @@ class AmbassadorProfile extends React.Component {
                             .map((major, i) => { // assuming possibility of minors are same as that of majors
                             return <option key={i} value={major}>{major}</option>;
                         })}
-                    </Input>
+                    </Form.Control>
                     <Button className="remove" onClick={() => {
                         this._updateMajor(null, index);
                     }}>Delete</Button>
-                </InputGroup>
+                </Form.ControlGroup>
             </div>
         );
     }
@@ -348,7 +347,7 @@ class AmbassadorProfile extends React.Component {
 
     // renderMajor = () => {
     //     return (
-    //         <Input type="select"
+    //         <Form.Control type="select"
     //                value={this.state.major.name || ''}
     //                onChange={({ target }) => {
     //                    // this.setState({ major: {name: target.value} });
@@ -358,15 +357,15 @@ class AmbassadorProfile extends React.Component {
     //             {majors.sort().map((major, i) => {
     //                 return <option key={i} value={major}>{major}</option>;
     //             })}
-    //         </Input>
+    //         </Form.Control>
     //     );
     // }
 
     renderSingleMinor = (minorName, index) => {
         return (
             <div className="select-entry" key={index}>
-                <InputGroup>
-                    <Input type="select"
+                <Form.ControlGroup>
+                    <Form.Control type="select"
                            value={minorName || ''}
                            onChange={({ target }) => {
                                this._updateMinor(target.value, index);
@@ -377,11 +376,11 @@ class AmbassadorProfile extends React.Component {
                             .map((major, i) => { // assuming possibility of minors are same as that of majors
                             return <option key={i} value={major}>{major}</option>;
                         })}
-                    </Input>
+                    </Form.Control>
                     <Button className="remove" onClick={() => {
                         this._updateMinor(null, index);
                     }}>Delete</Button>
-                </InputGroup>
+                </Form.ControlGroup>
             </div>
         );
     }
@@ -413,7 +412,7 @@ class AmbassadorProfile extends React.Component {
 
     // renderMinor = () => {
     //     return (
-    //         <Input type="select"
+    //         <Form.Control type="select"
     //                value={this.state.minor.name || ''}
     //                onChange={({ target }) => {
     //                    // this.setState({ minor: {name: target.value} });
@@ -423,7 +422,7 @@ class AmbassadorProfile extends React.Component {
     //             {majors.sort().map((major, i) => { // assuming possibility of minors are same as that of majors
     //                 return <option key={i} value={major}>{major}</option>;
     //             })}
-    //         </Input>
+    //         </Form.Control>
     //     );
     // }
 
@@ -435,22 +434,22 @@ class AmbassadorProfile extends React.Component {
                 <MuiThemeProvider>
                     <div className="profile">
                         <div className="ambassador-profile">
-                            <FormGroup className="major">
+                            <Form.Group className="major">
                                 <Label>Major</Label>
                                 {this.renderMajor()}
-                            </FormGroup>
-                            <FormGroup className="minor">
+                            </Form.Group>
+                            <Form.Group className="minor">
                                 <Label>Minor</Label>
                                 {this.renderMinor()}
-                            </FormGroup>
-                            <FormGroup className="bio">
+                            </Form.Group>
+                            <Form.Group className="bio">
                                 <Label>Bio</Label>
                                 {this.renderBio()}
-                            </FormGroup>
-                            <FormGroup className="classes-taken">
+                            </Form.Group>
+                            <Form.Group className="classes-taken">
                                 <Label>Classes Taken</Label>
                                 {this.renderClasses()}
-                            </FormGroup>
+                            </Form.Group>
                             <div>
                                 <div className="cancel" onClick={() => this.props.updateMentorStatus(false)}>I am no longer available</div>
                             </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ProfilePicture from '../../profilePicture';
 
-import { FormGroup, Input, Label } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
 class GeneralProfile extends React.Component {
 
@@ -45,9 +45,9 @@ class GeneralProfile extends React.Component {
                         </div>
                         <div className="right">
                             <div>
-                                <FormGroup>
-                                    <Label for="name-field">Full Name</Label>
-                                    <Input
+                                <Form.Group>
+                                    <Form.Label for="name-field">Full Name</Form.Label>
+                                    <Form.Control
                                         id="name-field"
                                         name="name-field"
                                         value={this.state.name}
@@ -74,12 +74,12 @@ class GeneralProfile extends React.Component {
                                             this.props.updateMultipleProfile(['first_name', firstName], ['last_name', lastName]);
                                         }}
                                     />
-                                </FormGroup>
+                                </Form.Group>
                             </div>
                             <div>
-                                <FormGroup>
-                                    <Label for="year-field">Year</Label>
-                                    <Input type="select" name="year-field" id="year-field"
+                                <Form.Group>
+                                    <Form.Label for="year-field">Year</Form.Label>
+                                    <Form.Control type="select" name="year-field" id="year-field"
                                            value={this.state.year}
                                            onChange={({ target }) => {
                                                this.setState({ year: target.value });
@@ -89,13 +89,13 @@ class GeneralProfile extends React.Component {
                                         <option value="2nd">2nd</option>
                                         <option value="3rd">3rd</option>
                                         <option value="4th">4th</option>
-                                    </Input>
-                                </FormGroup>
+                                    </Form.Control>
+                                </Form.Group>
                             </div>
                             <div>
-                                <FormGroup>
-                                    <Label for="email-field">Preferred Email</Label>
-                                    <Input
+                                <Form.Group>
+                                    <Form.Label for="email-field">Preferred Email</Form.Label>
+                                    <Form.Control
                                         type="email"
                                         id="email-field"
                                         name="email-field"
@@ -118,15 +118,15 @@ class GeneralProfile extends React.Component {
                                         }}
                                     />
                                     <p className="hint">You will receive email notifications when you have a new contact.</p>
-                                </FormGroup>
+                                </Form.Group>
                             </div>
                             <div>
 
-                                <FormGroup>
-                                    <Label for="phone-field">Phone Number</Label>
+                                <Form.Group>
+                                    <Form.Label for="phone-field">Phone Number</Form.Label>
                                     <p className="hint">Format as (xxx)xxx-xxxx.</p>
 
-                                    <Input
+                                    <Form.Control
                                         type="phone"
                                         id="phone-field"
                                         name="phone-field"
@@ -144,7 +144,7 @@ class GeneralProfile extends React.Component {
 
                                         />
 
-                                </FormGroup>
+                                </Form.Group>
                             </div>
                         </div>
                     </div>

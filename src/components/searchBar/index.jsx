@@ -1,8 +1,8 @@
 import React from 'react';
-import AutoComplete from 'material-ui/AutoComplete';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import {Autocomplete}from '@material-ui/core';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 
-import majors from '../../majors';
+import majors from 'majors';
 
 /**
  * The input is used to create the `dataSource`, so the input always matches three entries.
@@ -30,11 +30,11 @@ class Search extends React.Component {
         return (
             <MuiThemeProvider>
                 <div className="search-bar">
-                    <AutoComplete
+                    <Autocomplete
                         hintText="Search by major..."
                         dataSource={this.majors}
                         fullWidth={true}
-                        filter={AutoComplete.caseInsensitiveFilter}
+                        filter={Autocomplete.caseInsensitiveFilter}
                         maxSearchResults={5}
                         onNewRequest={this.onNewRequest}
                         underlineFocusStyle={styles}

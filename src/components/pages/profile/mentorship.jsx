@@ -9,7 +9,7 @@ import MenuItem from 'material-ui/MenuItem';
 import ChipInput from 'material-ui-chip-input';
 import Chip from 'material-ui/Chip';
 
-import { Button, Input, Alert} from 'react-bootstrap';
+import { Button, Form, Alert} from 'react-bootstrap';
 
 import classNames from 'classnames';
 import { isatty } from 'tty';
@@ -20,48 +20,48 @@ import majors from '../../../majors.json';
 
 
 const styles = {
-	toggle: {
-		width: 44,
-		height: 23,
-	},
-	thumbOff: {
-		backgroundColor: '#ffcccc',
-	},
-	trackOff: {
-		backgroundColor: '#ff9d9d',
-	},
-	thumbSwitched: {
-		backgroundColor: 'red',
-	},
-	trackSwitched: {
-		backgroundColor: '#ff9d9d',
-	},
-	labelStyle: {
-		color: 'red',
-	},
-	update_button: {
-		margin: "0px"
-	},
-	textfield: {
-		height: 40,
-		textAlign: "center",
-	},
-	textfield_input: {
+    toggle: {
+        width: 44,
+        height: 23,
+    },
+    thumbOff: {
+        backgroundColor: '#ffcccc',
+    },
+    trackOff: {
+        backgroundColor: '#ff9d9d',
+    },
+    thumbSwitched: {
+        backgroundColor: 'red',
+    },
+    trackSwitched: {
+        backgroundColor: '#ff9d9d',
+    },
+    labelStyle: {
+        color: 'red',
+    },
+    update_button: {
+        margin: "0px"
+    },
+    textfield: {
+        height: 40,
+        textAlign: "center",
+    },
+    textfield_input: {
         borderColor: '#007bff'
-	},
-	blurb: {
-		paddingLeft:"4%",
-		margin:"2%",
-		lineHeight:"1.5em",
-		fontSize: "90%"
-	},
-	chip: {
-    	margin: 4,
-  	},
-  	wrapper: {
-    	display: 'flex',
-    	flexWrap: 'wrap',
-  	},
+    },
+    blurb: {
+        paddingLeft:"4%",
+        margin:"2%",
+        lineHeight:"1.5em",
+        fontSize: "90%"
+    },
+    chip: {
+        margin: 4,
+      },
+      wrapper: {
+        display: 'flex',
+        flexWrap: 'wrap',
+      },
 
 };
 
@@ -70,27 +70,27 @@ class Mentorship extends React.Component {
         super(props);
         this.state = {
             bioOpen: false,
-						prosOpen: false,
-						consOpen: false,
-						clubsOpen: false,
+                        prosOpen: false,
+                        consOpen: false,
+                        clubsOpen: false,
             classesOpen: false,
             majorOpen: false,
             bio: props.mentor.bio,
-						pros: props.mentor.pros,
-						cons: props.mentor.cons,
-						clubs: props.mentor.clubs,
+                        pros: props.mentor.pros,
+                        cons: props.mentor.cons,
+                        clubs: props.mentor.clubs,
             courses: props.mentor.courses ? props.mentor.courses.map(obj => obj.name) : []
         }
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-			bio: nextProps.mentor.bio,
-			pros: nextProps.mentor.pros,
-			cons: nextProps.mentor.cons,
-			clubs: nextProps.mentor.clubs,
-			courses: nextProps.mentor.courses.map(obj => obj.name)
-		});
+            bio: nextProps.mentor.bio,
+            pros: nextProps.mentor.pros,
+            cons: nextProps.mentor.cons,
+            clubs: nextProps.mentor.clubs,
+            courses: nextProps.mentor.courses.map(obj => obj.name)
+        });
     }
 
 
@@ -100,17 +100,17 @@ class Mentorship extends React.Component {
         });
     }
 
-	handleRequestAdd (chip) {
-    	this.setState({
-      	courses: [...this.state.courses, chip]
-    	})
-  	}
+    handleRequestAdd (chip) {
+        this.setState({
+          courses: [...this.state.courses, chip]
+        })
+      }
 
-	handleRequestDelete (deletedChip) {
-      	this.setState({
-        	courses: this.state.courses.filter((c) => c !== deletedChip)
-      	})
-  	}
+    handleRequestDelete (deletedChip) {
+          this.setState({
+            courses: this.state.courses.filter((c) => c !== deletedChip)
+          })
+      }
 
     renderEditClasses = () => {
         return (
@@ -118,9 +118,9 @@ class Mentorship extends React.Component {
                 <ChipInput
                     fullWidth={true}
                     underlineFocusStyle={styles.textfield_input}
-					value={this.state.courses}
-  					onRequestAdd={(chip) => this.handleRequestAdd(chip)}
-  					onRequestDelete={(deletedChip) => this.handleRequestDelete(deletedChip)}
+                    value={this.state.courses}
+                      onRequestAdd={(chip) => this.handleRequestAdd(chip)}
+                      onRequestDelete={(deletedChip) => this.handleRequestDelete(deletedChip)}
                 />
                 <div className="buttons">
                     <Button
@@ -158,60 +158,60 @@ class Mentorship extends React.Component {
             } else {
                 return this.renderEditClasses();
             }
-		} else {
-			if (!this.state.classesOpen) {
+        } else {
+            if (!this.state.classesOpen) {
                 let key = 0;
-				return (
-					<div className="text-and-edit">
-						<div className="courses">
+                return (
+                    <div className="text-and-edit">
+                        <div className="courses">
                             {this.props.mentor.courses.map(course => {
                                 key += 1;
                                 return (
                                     <Chip style={styles.chip} key={key}>{course.name}</Chip>
                                 );
                             })}
-						</div>
+                        </div>
                         <i className="fa fa-pencil-square-o" style={{paddingTop:"3%"}} onClick={() => this.openField("classesOpen")}></i>
                     </div>
-				);
-			} else {
-				return this.renderEditClasses();
-			}
-		}
-	}
+                );
+            } else {
+                return this.renderEditClasses();
+            }
+        }
+    }
 
     _updateBio = () => {
         this.openField("bioOpen");
         this.props.updateProfile("bio", this.state.bio);
     }
 
-		_updatePros = () => {
-				this.openField("prosOpen");
-				this.props.updateProfile("pro", this.state.pros);
-		}
+        _updatePros = () => {
+                this.openField("prosOpen");
+                this.props.updateProfile("pro", this.state.pros);
+        }
 
-		_updateCons = () => {
-				this.openField("consOpen");
-				this.props.updateProfile("cons", this.state.cons);
-		}
+        _updateCons = () => {
+                this.openField("consOpen");
+                this.props.updateProfile("cons", this.state.cons);
+        }
 
-		_updateClubs = () => {
-				this.openField("clubsOpen");
-				this.props.updateProfile("clubs", this.state.clubs);
-		}
+        _updateClubs = () => {
+                this.openField("clubsOpen");
+                this.props.updateProfile("clubs", this.state.clubs);
+        }
 
-	_updateClasses = () => {
+    _updateClasses = () => {
         this.openField("classesOpen");
         this.props.updateProfile("courses", this.state.courses.map(function(str){
-			return ({name: str})
-		}));
+            return ({name: str})
+        }));
     }
 
 
     renderEditBio = () => {
         return (
             <div className="add-bio">
-                <Input type="textarea" onChange={e => this.setState({bio: e.target.value})} value={this.state.bio} name="bio" id="bio" />
+                <Form.Control type="textarea" onChange={e => this.setState({bio: e.target.value})} value={this.state.bio} name="bio" id="bio" />
                 <div className="buttons">
                     <Button
                         color="primary"
@@ -259,10 +259,10 @@ class Mentorship extends React.Component {
     }
 
 
-		renderEditPros = () => {
+        renderEditPros = () => {
         return (
             <div className="add-pros">
-                <Input type="textarea" onChange={e => this.setState({pros: e.target.value})} value={this.state.pros} name="pros" id="pros" />
+                <Form.Control type="textarea" onChange={e => this.setState({pros: e.target.value})} value={this.state.pros} name="pros" id="pros" />
                 <div className="buttons">
                     <Button
                         color="primary"
@@ -309,105 +309,105 @@ class Mentorship extends React.Component {
         }
     }
 
-		renderEditCons = () => {
-				return (
-						<div className="add-cons">
-								<Input type="textarea" onChange={e => this.setState({cons: e.target.value})} value={this.state.cons} name="cons" id="cons" />
-								<div className="buttons">
-										<Button
-												color="primary"
-												onClick={() => this._updateCons()}
-												size="sm"
-										>
-												Save
-										</Button>
-										<Button
-												color="secondary"
-												onClick={() => this.openField("consOpen")}
-												size="sm"
-										>
-												Cancel
-										</Button>
-								</div>
-						</div>
-				);
-		}
+        renderEditCons = () => {
+                return (
+                        <div className="add-cons">
+                                <Form.Control type="textarea" onChange={e => this.setState({cons: e.target.value})} value={this.state.cons} name="cons" id="cons" />
+                                <div className="buttons">
+                                        <Button
+                                                color="primary"
+                                                onClick={() => this._updateCons()}
+                                                size="sm"
+                                        >
+                                                Save
+                                        </Button>
+                                        <Button
+                                                color="secondary"
+                                                onClick={() => this.openField("consOpen")}
+                                                size="sm"
+                                        >
+                                                Cancel
+                                        </Button>
+                                </div>
+                        </div>
+                );
+        }
 
-		renderCons = () => {
-				if (!this.props.mentor.cons) {
-						if (!this.state.consOpen) {
-								return (
-										<p onClick={() => this.openField("consOpen")}>
-												<i className="fa fa-plus" aria-hidden="true"></i>
-												&nbsp;Add cons
-										</p>
-								);
-						} else {
-								return this.renderEditCons();
-						}
-				} else {
-						if (!this.state.consOpen) {
-								return (
-										<div className="text-and-edit">
-												<p>{this.props.mentor.cons}</p>
-												<i className="fa fa-pencil-square-o" onClick={() => this.openField("consOpen")}></i>
-										</div>
-								);
-						} else {
-								return this.renderEditCons();
-						}
-				}
-		}
+        renderCons = () => {
+                if (!this.props.mentor.cons) {
+                        if (!this.state.consOpen) {
+                                return (
+                                        <p onClick={() => this.openField("consOpen")}>
+                                                <i className="fa fa-plus" aria-hidden="true"></i>
+                                                &nbsp;Add cons
+                                        </p>
+                                );
+                        } else {
+                                return this.renderEditCons();
+                        }
+                } else {
+                        if (!this.state.consOpen) {
+                                return (
+                                        <div className="text-and-edit">
+                                                <p>{this.props.mentor.cons}</p>
+                                                <i className="fa fa-pencil-square-o" onClick={() => this.openField("consOpen")}></i>
+                                        </div>
+                                );
+                        } else {
+                                return this.renderEditCons();
+                        }
+                }
+        }
 
-		renderEditClubs = () => {
-				return (
-						<div className="add-clubs">
-								<Input type="textarea" onChange={e => this.setState({clubs: e.target.value})} value={this.state.clubs} name="clubs" id="clubs" />
-								<div className="buttons">
-										<Button
-												color="primary"
-												onClick={() => this._updateClubs()}
-												size="sm"
-										>
-												Save
-										</Button>
-										<Button
-												color="secondary"
-												onClick={() => this.openField("clubsOpen")}
-												size="sm"
-										>
-												Cancel
-										</Button>
-								</div>
-						</div>
-				);
-		}
+        renderEditClubs = () => {
+                return (
+                        <div className="add-clubs">
+                                <Form.Control type="textarea" onChange={e => this.setState({clubs: e.target.value})} value={this.state.clubs} name="clubs" id="clubs" />
+                                <div className="buttons">
+                                        <Button
+                                                color="primary"
+                                                onClick={() => this._updateClubs()}
+                                                size="sm"
+                                        >
+                                                Save
+                                        </Button>
+                                        <Button
+                                                color="secondary"
+                                                onClick={() => this.openField("clubsOpen")}
+                                                size="sm"
+                                        >
+                                                Cancel
+                                        </Button>
+                                </div>
+                        </div>
+                );
+        }
 
-		renderClubs = () => {
-				if (!this.props.mentor.clubs) {
-						if (!this.state.clubsOpen) {
-								return (
-										<p onClick={() => this.openField("clubsOpen")}>
-												<i className="fa fa-plus" aria-hidden="true"></i>
-												&nbsp;Add clubs
-										</p>
-								);
-						} else {
-								return this.renderEditClubs();
-						}
-				} else {
-						if (!this.state.clubsOpen) {
-								return (
-										<div className="text-and-edit">
-												<p>{this.props.mentor.clubs}</p>
-												<i className="fa fa-pencil-square-o" onClick={() => this.openField("clubsOpen")}></i>
-										</div>
-								);
-						} else {
-								return this.renderEditClubs();
-						}
-				}
-		}
+        renderClubs = () => {
+                if (!this.props.mentor.clubs) {
+                        if (!this.state.clubsOpen) {
+                                return (
+                                        <p onClick={() => this.openField("clubsOpen")}>
+                                                <i className="fa fa-plus" aria-hidden="true"></i>
+                                                &nbsp;Add clubs
+                                        </p>
+                                );
+                        } else {
+                                return this.renderEditClubs();
+                        }
+                } else {
+                        if (!this.state.clubsOpen) {
+                                return (
+                                        <div className="text-and-edit">
+                                                <p>{this.props.mentor.clubs}</p>
+                                                <i className="fa fa-pencil-square-o" onClick={() => this.openField("clubsOpen")}></i>
+                                        </div>
+                                );
+                        } else {
+                                return this.renderEditClubs();
+                        }
+                }
+        }
 
 
     _updateMajor = major => {
@@ -478,70 +478,70 @@ class Mentorship extends React.Component {
     render() {
         const isActive = this.props.mentor.active;
 
-		let notAmb =
-		<Alert color="secondary">
-			<ul style={styles.blurb}>
-				<li>If you have declared your major, you can become an ambassador, and help out fellow bruins.</li>
-				<li>As an ambassador you will meet with with undeclared or undecided students, who wants to hear about
-					your major over a cup of coffee/tea.</li>
-				<li>Meet with as many or as few students as you want. They will really
-					appreciate your help, when deciding on their major.</li>
-			</ul>
-		</Alert>
+        let notAmb =
+        <Alert color="secondary">
+            <ul style={styles.blurb}>
+                <li>If you have declared your major, you can become an ambassador, and help out fellow bruins.</li>
+                <li>As an ambassador you will meet with with undeclared or undecided students, who wants to hear about
+                    your major over a cup of coffee/tea.</li>
+                <li>Meet with as many or as few students as you want. They will really
+                    appreciate your help, when deciding on their major.</li>
+            </ul>
+        </Alert>
 
-	 	let isAmb =
-		<div className={classNames({'disabled': !isActive}, 'mentor-fields')}>
-			<div className="major">
-				<h2>Major</h2>
-				<Divider orientation={"horizontal"} />
-				{this.renderMajor()}
-			</div>
-			<div className="bio">
-				<h2>Bio</h2>
-				<Divider orientation={"horizontal"} />
-				{this.renderBio()}
-			</div>
-			<div className="classes-taken">
-				<h2>Classes Taken:</h2>
-				<Divider orientation={"horizontal"} />
-				{this.renderClasses()}
-			</div>
-		</div>
+         let isAmb =
+        <div className={classNames({'disabled': !isActive}, 'mentor-fields')}>
+            <div className="major">
+                <h2>Major</h2>
+                <Divider orientation={"horizontal"} />
+                {this.renderMajor()}
+            </div>
+            <div className="bio">
+                <h2>Bio</h2>
+                <Divider orientation={"horizontal"} />
+                {this.renderBio()}
+            </div>
+            <div className="classes-taken">
+                <h2>Classes Taken:</h2>
+                <Divider orientation={"horizontal"} />
+                {this.renderClasses()}
+            </div>
+        </div>
 
 
         return(
-			<MuiThemeProvider>
-            	<div className="mentorship">
-                	<div className="heading">
-                    	<i className="fa fa-users fa-lg" aria-hidden="true"></i>
-                    	<h1>Ambassador</h1>
-                	</div>
-                	<div className="body">
-                    	<div className="mentorship-status">
-                        	<h2>Ambassador Status:</h2>
-							<Toggle
+            <MuiThemeProvider>
+                <div className="mentorship">
+                    <div className="heading">
+                        <i className="fa fa-users fa-lg" aria-hidden="true"></i>
+                        <h1>Ambassador</h1>
+                    </div>
+                    <div className="body">
+                        <div className="mentorship-status">
+                            <h2>Ambassador Status:</h2>
+                            <Toggle
                                 id="status"
                                 toggled={isActive}
                                 onToggle={this.props.updateMentorStatus}
                                 style={styles.toggle}
                             />
-                    	</div>
+                        </div>
 
-						<div>
-            				{ !isActive
-                				? notAmb
-								: isAmb
-            				}
-        				</div>
+                        <div>
+                            { !isActive
+                                ? notAmb
+                                : isAmb
+                            }
+                        </div>
 
-                	</div>
-                	{/*
-                	<div className="banner">
-                    	<p>Are you an upperclassman who's passionate about your major? Become a mentor and spread your wisdom!</p>
-                	</div>
-                	*/}
-            	</div>
-			</MuiThemeProvider>
+                    </div>
+                    {/*
+                    <div className="banner">
+                        <p>Are you an upperclassman who's passionate about your major? Become a mentor and spread your wisdom!</p>
+                    </div>
+                    */}
+                </div>
+            </MuiThemeProvider>
         );
     }
 }

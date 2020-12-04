@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, FormGroup, Label } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import Button from 'components/util/Button';
 import { withRouter } from "react-router-dom";
 
@@ -41,13 +41,13 @@ class ForgetPasswordForm extends React.Component {
         return(
             <div>
                 <div className="login-form">
-                    <FormGroup className="form-group">
+                    <Form.Group className="form-group">
                         <Label className="label">Email</Label>
                         <div className="flex-group">
-                            <Input className="inline-input" type="text" placeholder="email" name="email" onChange={this.handleChange}/>
+                            <Form.Control className="inline-input" type="text" placeholder="email" name="email" onChange={this.handleChange}/>
                             <span>@g.ucla.edu</span>
                         </div>
-                    </FormGroup>
+                    </Form.Group>
                 </div>
                 <Button className="login-button" onClick={this._action} disabled={disabled} block>{this.props.buttonText}</Button>
             </div>

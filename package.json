@@ -1,13 +1,14 @@
 {
   "name": "BQuest",
   "version": "0.1.0",
-  "description": "DevX Fall 2017 - PickMyBruin",
+  "description": "DevX Fall 2020 - PickMyBruin",
   "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -p --config webpack-production.config.js --progress --color",
-    "build-dev": "webpack-dev-server -w --progress --color"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -20,19 +21,11 @@
   },
   "homepage": "https://github.com/ucladevx/BQuest-Frontend#readme",
   "devDependencies": {
-    "@babel/core": "^7.12.8",
-    "@babel/eslint-parser": "^7.12.1",
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@babel/preset-env": "^7.12.7",
-    "@babel/preset-react": "^7.12.7",
-    "babel-loader": "^8.2.1",
     "cheerio": "^1.0.0-rc.2",
     "css-loader": "^5.0.1",
-    "eslint": "^7.14.0",
-    "file-loader": "^1.1.5",
-    "node-sass": "^4.11.0",
-    "nodemon": "^1.11.0",
-    "postcss": "^8.1.10",
+    "file-loader": "^6.2.0",
+    "nodemon": "^2.0.6",
+    "postcss": "^8.1.13",
     "postcss-loader": "^4.1.0",
     "react-file-reader": "^1.1.4",
     "react-ga": "^3.3.0",
@@ -40,7 +33,8 @@
     "react-responsive-carousel": "^3.2.10",
     "react-router-dom": "^5.2.0",
     "react-router-redux": "^4.0.8",
-    "react-slideshow-image": "^3.4.1",
+    "react-scripts": "4.0.1",
+    "react-slideshow-image": "^3.4.2",
     "react-transition-group": "^4.4.1",
     "reapop": "^3.0.0",
     "redux": "^4.0.5",
@@ -48,22 +42,22 @@
     "redux-thunk": "^2.3.0",
     "request": "^2.83.0",
     "reselect": "^4.0.0",
-    "resolve-url-loader": "^2.3.0",
+    "resolve-url-loader": "^3.1.2",
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
     "svg-inline-loader": "^0.8.0",
-    "url-loader": "^0.6.2",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
+    "url-loader": "^4.1.1",
+    "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.1.11"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.1",
-    "bootstrap": "4.0.0-beta",
+    "@material-ui/core": "^5.0.0-alpha.18",
+    "@material-ui/lab": "^5.0.0-alpha.18",
+    "bootstrap": "4.5.3",
     "classnames": "^2.2.5",
     "font-awesome": "^4.7.0",
-    "form-urlencoded": "^2.0.4",
-    "immutable": "^3.8.2",
+    "form-urlencoded": "^4.2.1",
+    "immutable": "^4.0.0-rc.12",
     "jquery": "^3.3.1",
     "material-ui-chip-input": "^2.0.0-beta.2",
     "moment": "^2.20.1",
@@ -73,16 +67,12 @@
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
-    "typeface-source-sans-pro": "^1.1.13"
+    "sass": "^1.29.0",
+    "typeface-source-sans-pro": "^1.1.13",
+    "typescript": "^4.1.2"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ],
-    "plugins": [
-      "@babel/plugin-proposal-class-properties"
-    ]
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
