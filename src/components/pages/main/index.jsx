@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 
 import NavBar from '../../../components/navbar';
 import Footer from '../../../components/footer';
-import newBquestLogo from '../../../../images/loginPage/white-bquest-logo.svg.inline'
+import newBquestLogo from 'images/loginPage/white-bquest-logo.svg.inline'
 
 class MainPage extends React.Component {
     render() {

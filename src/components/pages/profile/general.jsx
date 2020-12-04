@@ -1,8 +1,6 @@
 import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
-import Toggle from 'material-ui/Toggle';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import TextField from '@material-ui/core/TextField';
 
 import { Collapse, Button, CardBody, Card, Alert } from 'react-bootstrap';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import newBquestLogo from '../../../../../images/loginPage/teal-bquest-logo.svg.inline';
-import newBquest from '../../../../../images/loginPage/teal-bquest.svg.inline';
+import newBquestLogo from 'images/loginPage/teal-bquest-logo.svg.inline';
+import newBquest from 'images/loginPage/teal-bquest.svg.inline';
 
 export default (props) => {
     return (

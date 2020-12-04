@@ -1,5 +1,4 @@
 import React from 'react';
-import Shave from 'react-shave';
 import { Link } from 'react-router-dom';
 
 import ProfilePicture from 'components/profilePicture';

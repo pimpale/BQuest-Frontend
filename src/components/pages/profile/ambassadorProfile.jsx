@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MuiThemeProvider from '@material-ui/styles/MuiThemeProvider';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import Chip from '@material-ui/core/Chip';
 
 import { Button, Form, } from 'react-bootstrap';

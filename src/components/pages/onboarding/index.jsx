@@ -5,24 +5,24 @@ import { Slide } from 'react-slideshow-image';
 import TopBar from '../../util/TopBar';
 import Button from 'components/util/Button';
 
-import image1 from '../../../../images/onboarding/1.svg.inline';
-import image2 from '../../../../images/onboarding/2.svg.inline';
-import image3 from '../../../../images/onboarding/3.svg.inline';
-import image4 from '../../../../images/onboarding/4.svg.inline';
-import image5 from '../../../../images/onboarding/5.svg.inline';
-import image6 from '../../../../images/onboarding/6.svg.inline';
-import image7 from '../../../../images/onboarding/7.svg.inline';
-import image8 from '../../../../images/onboarding/8.svg.inline';
-import image9 from '../../../../images/onboarding/9.svg.inline';
-import image10 from '../../../../images/onboarding/10.svg.inline';
-import image11 from '../../../../images/onboarding/11.svg.inline';
-import image12 from '../../../../images/onboarding/12.svg.inline';
-import image13 from '../../../../images/onboarding/13.svg.inline';
-import image14 from '../../../../images/onboarding/14.svg.inline';
-import image15 from '../../../../images/onboarding/15.svg.inline';
-import image16 from '../../../../images/onboarding/16.svg.inline';
-import image17 from '../../../../images/onboarding/17.svg.inline';
-import image18 from '../../../../images/onboarding/18.svg.inline';
+import image1 from 'images/onboarding/1.svg.inline';
+import image2 from 'images/onboarding/2.svg.inline';
+import image3 from 'images/onboarding/3.svg.inline';
+import image4 from 'images/onboarding/4.svg.inline';
+import image5 from 'images/onboarding/5.svg.inline';
+import image6 from 'images/onboarding/6.svg.inline';
+import image7 from 'images/onboarding/7.svg.inline';
+import image8 from 'images/onboarding/8.svg.inline';
+import image9 from 'images/onboarding/9.svg.inline';
+import image10 from 'images/onboarding/10.svg.inline';
+import image11 from 'images/onboarding/11.svg.inline';
+import image12 from 'images/onboarding/12.svg.inline';
+import image13 from 'images/onboarding/13.svg.inline';
+import image14 from 'images/onboarding/14.svg.inline';
+import image15 from 'images/onboarding/15.svg.inline';
+import image16 from 'images/onboarding/16.svg.inline';
+import image17 from 'images/onboarding/17.svg.inline';
+import image18 from 'images/onboarding/18.svg.inline';
 
 const properties = {
     duration: 5000,

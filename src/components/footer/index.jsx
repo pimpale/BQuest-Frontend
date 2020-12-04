@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 
-import BquestLogo from '../../../images/loginPage/white-bquest-logo.svg.inline';
+import BquestLogo from 'images/loginPage/white-bquest-logo.svg.inline';
 
 class Footer extends React.Component {
     

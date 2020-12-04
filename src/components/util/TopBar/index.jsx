@@ -1,5 +1,5 @@
 import React from 'react';
-import newBquestLogo from '../../../../images/loginPage/white-bquest-logo.svg.inline'
+import newBquestLogo from 'images/loginPage/white-bquest-logo.svg.inline'
 
 export default () => {
     return (

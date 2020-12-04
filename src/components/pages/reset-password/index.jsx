@@ -1,6 +1,6 @@
 import React from 'react';
-import newBquest from '../../../../images/loginPage/white-bquest.svg.inline'
-import newBquestLogo from '../../../../images/loginPage/white-bquest-logo.svg.inline'
+import newBquest from 'images/loginPage/white-bquest.svg.inline'
+import newBquestLogo from 'images/loginPage/white-bquest-logo.svg.inline'
 import Footer from '../../../components/footer';
 import Form from '../../util/ResetPasswordForm';
 

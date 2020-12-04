@@ -1,13 +1,7 @@
 import React from 'react';
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
-import Toggle from 'material-ui/Toggle';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import ChipInput from 'material-ui-chip-input';
-import Chip from 'material-ui/Chip';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import {TextField, MenuItem, Chip}  from '@material-ui/core';
 
 import { Button, Form, Alert} from 'react-bootstrap';
 

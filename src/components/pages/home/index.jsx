@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import TopBar from './topBar';
 import Footer from '../../footer';
-import bg from '../../../../images/landingPage/bg.svg.inline';
+import bg from 'images/landingPage/bg.svg.inline';
 
 class Home extends React.Component {
 
