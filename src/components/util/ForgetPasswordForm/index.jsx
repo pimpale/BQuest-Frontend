@@ -42,7 +42,7 @@ class ForgetPasswordForm extends React.Component {
             <div>
                 <div className="login-form">
                     <Form.Group className="form-group">
-                        <Label className="label">Email</Label>
+                        <Form.Label className="label">Email</Form.Label>
                         <div className="flex-group">
                             <Form.Control className="inline-input" type="text" placeholder="email" name="email" onChange={this.handleChange}/>
                             <span>@g.ucla.edu</span>

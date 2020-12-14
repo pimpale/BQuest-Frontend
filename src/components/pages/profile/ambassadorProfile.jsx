@@ -2,6 +2,7 @@ import React from 'react';
 
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import Chip from '@material-ui/core/Chip';
+import ChipInput from 'material-ui-chip-input';
 
 import { Button, Form, } from 'react-bootstrap';
 
@@ -435,19 +436,19 @@ class AmbassadorProfile extends React.Component {
                     <div className="profile">
                         <div className="ambassador-profile">
                             <Form.Group className="major">
-                                <Label>Major</Label>
+                                <Form.Label>Major</Form.Label>
                                 {this.renderMajor()}
                             </Form.Group>
                             <Form.Group className="minor">
-                                <Label>Minor</Label>
+                                <Form.Label>Minor</Form.Label>
                                 {this.renderMinor()}
                             </Form.Group>
                             <Form.Group className="bio">
-                                <Label>Bio</Label>
+                                <Form.Label>Bio</Form.Label>
                                 {this.renderBio()}
                             </Form.Group>
                             <Form.Group className="classes-taken">
-                                <Label>Classes Taken</Label>
+                                <Form.Label>Classes Taken</Form.Label>
                                 {this.renderClasses()}
                             </Form.Group>
                             <div>
