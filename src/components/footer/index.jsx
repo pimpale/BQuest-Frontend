@@ -1,4 +1,5 @@
 import React from "react";
+import {ReactSVG} from "react-svg";
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 
@@ -16,7 +17,7 @@ class Footer extends React.Component {
         return (
             <div className="footer-container">
                 <div className="link-logo">
-                    <div className="inner-logo" dangerouslySetInnerHTML={{__html: BquestLogo}} />
+                    <ReactSVG className="inner-logo" src={BquestLogo} />
                     {this.props.isLoggedIn && <p onClick={() => this.navigate("home")}>BQUEST</p>}
                     {!this.props.isLoggedIn && <p onClick={() => this.navigate("")}>BQUEST</p>}
                 </div>

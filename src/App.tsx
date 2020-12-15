@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider, useSelector } from 'react-redux';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
-import NotificationsSystem, { dismissNotifications}  from 'reapop';
+import NotificationsSystem, { dismissNotifications } from 'reapop';
 import { store, history, RootState } from './reducer';
 
 import HomeContainer from './container/home';
@@ -35,15 +35,19 @@ import './main.scss';
 // google analytics
 import withTracker from './container/analytics.js';
 
+function ImplementNotifications() {
+  return <NotificationsSystem
+    notifications={useSelector((state: RootState) => state).notifications}
+    dismissNotification={dismissNotifications}
+  />
+}
+
 function App() {
   return (
     <Provider store={store}>
       <ConnectedRouter history={history}>
+        <ImplementNotifications/>
         <div>
-          <NotificationsSystem
-            notifications={useSelector((state:RootState) => state).notifications}
-            dismissNotification={dismissNotifications}
-          />
           <Switch>
             <Route exact path="/" component={HomeContainer} />
             <Route exact path="/login" component={LoginContainer} />
@@ -57,7 +61,6 @@ function App() {
             <Route path="/verify" component={VerifyUserContainer} />
             <Route path="/password" component={ResetPasswordContainer} />
             <Route path="/completeRegistration" component={CompleteRegistrationContainer} />
-
             <Route exact path="/home" component={Authentication(MainPage)} />
             <Route exact path="/chooseRole" component={Authentication(ChooseRoleContainer)} />
             <Route exact path="/onboarding" component={Authentication(Onboarding)} />

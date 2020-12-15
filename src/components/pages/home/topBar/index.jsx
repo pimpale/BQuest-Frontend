@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {ReactSVG} from 'react-svg';
 
 import newBquestLogo from 'images/loginPage/teal-bquest-logo.svg.inline';
 import newBquest from 'images/loginPage/teal-bquest.svg.inline';
@@ -8,8 +9,8 @@ export default (props) => {
     return (
         <section className="top-bar">
             <div className="logo">
-                <div className="logo-logo" dangerouslySetInnerHTML={{__html: newBquestLogo}} />
-                <div className="logo-text" dangerouslySetInnerHTML={{__html: newBquest}} />
+                <ReactSVG className="logo-logo" src={newBquestLogo} />
+                <ReactSVG className="logo-text" src={newBquest} />
             </div>
             <div className="nav-buttons">
                 <Link id="login" to="/login">Login</Link>
