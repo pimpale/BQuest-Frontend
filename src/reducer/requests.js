@@ -1,6 +1,6 @@
 import Immutable, { fromJS } from 'immutable';
 import formurlencoded from "form-urlencoded";
-import {push} from "react-router-redux";
+import {push} from 'connected-react-router';
 import { addNotification as notify } from 'reapop';
 import Config from '../config';
 import Storage from '../storage';

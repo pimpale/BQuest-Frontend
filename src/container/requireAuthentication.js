@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { push, replace } from 'react-router-redux';
+import { push, replace } from 'connected-react-router';
 
 import { Actions } from 'reducer';
 

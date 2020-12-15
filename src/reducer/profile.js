@@ -1,6 +1,6 @@
 import Immutable, { fromJS } from 'immutable';
-import { replace, push } from 'react-router-redux';
-import { addNotification as notify } from 'reapop';
+import { replace, push } from 'connected-react-router';
+import { notify } from 'reapop';
 
 import { logout } from './login';
 

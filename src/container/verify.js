@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { replace, push } from 'react-router-redux';
+import { replace, push } from 'connected-react-router';
 import { bindActionCreators } from 'redux'
 import { parse } from 'qs';
 

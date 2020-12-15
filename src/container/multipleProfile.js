@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { replace } from 'react-router-redux';
+import { replace } from 'connected-react-router';
 
 import { Actions } from '../reducer';
 import MultipleProfile from '../components/pages/profile/multipleProfile';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { replace, goBack, push } from 'react-router-redux';
+import { replace, goBack, push } from 'connected-react-router';
 
 import { Actions } from 'reducer';
 import { getAmbassadorState } from 'selectors/ambassadors';

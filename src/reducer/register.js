@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 import { addNotification as notify } from 'reapop';
-import { replace } from 'react-router-redux';
+import { replace } from 'connected-react-router';
 
 import { setProfile } from './profile';
 import { login, logout } from './login';

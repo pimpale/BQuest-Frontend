@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { push, replace, goBack } from 'react-router-redux';
+import {  replace} from 'connected-react-router';
 import { parse } from 'qs';
 
 import { Actions } from '../reducer';

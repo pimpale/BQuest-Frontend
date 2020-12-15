@@ -1,5 +1,5 @@
 import Immutable, { fromJS } from 'immutable';
-import { addNotification as notify } from 'reapop';
+import { notify } from 'reapop';
 
 import Storage from 'storage';
 import Config from 'config';

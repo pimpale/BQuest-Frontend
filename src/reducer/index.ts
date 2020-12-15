@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import createHistory from 'history/createBrowserHistory';
-import {routerReducer, routerMiddleware, push, routerActions} from 'react-router-redux';
+import {routerMiddleware, connectRouter, routerActions} from 'connected-react-router';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { reducer as notificationsReducer } from 'reapop';
@@ -12,7 +12,7 @@ import { SearchMentors, handleSearch } from './searchMentors'
 import { Requests, getRequests, sendRequest } from './requests'
 import { Messages, fetchThreads, fetchMessages, checkIfThreadExists, sendMessage, removeProfileViewing } from './messages';
 
-const history = createHistory();
+export const history = createHistory();
 const reactRouterMiddleware = routerMiddleware(history);
 
 let middleware = [reactRouterMiddleware, thunk];
@@ -22,25 +22,31 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // Install redux-devtools-extension to get a nice full view of what current state is
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(
-    combineReducers({
+
+export const rootReducer = combineReducers({
         Register,
         Login,
         Profile,
         SearchMentors,
         Requests,
         Messages,
-        router: routerReducer,
+        router: connectRouter(history),
         notifications: notificationsReducer()
-    }),
+    });
+
+export type RootState = ReturnType<typeof rootReducer>
+
+
+export const store = createStore(
+    rootReducer,
     composeEnhancers(applyMiddleware(
         ...middleware
     ))
 );
 
-const Actions = {
+export const Actions = {
     registerActions: {
         sendVerificationLink, completeRegistration, confirmCode
     },
@@ -59,8 +65,4 @@ const Actions = {
     messagesActions: {
         fetchThreads, fetchMessages, sendMessage, removeProfileViewing, checkIfThreadExists,
     }
-}
-
-export {
-    store, history, Actions
 }

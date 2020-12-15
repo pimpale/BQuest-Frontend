@@ -1,7 +1,7 @@
 import Immutable from 'immutable';
 import formurlencoded from "form-urlencoded";
-import { push, replace } from "react-router-redux";
-import { addNotification as notify } from 'reapop';
+import { push, replace } from "connected-react-router";
+import { notify } from 'reapop';
 
 import Config from '../config';
 import Storage from '../storage';
@@ -35,7 +35,7 @@ const loginFailure = () => {
 }
 
 const logout = () => {
-    return dispatch => {
+    return (dispatch:any) => {
         dispatch(removeProfileInfo());
         dispatch({
             type: LOGOUT
@@ -43,8 +43,8 @@ const logout = () => {
     }
 }
 
-const loginAndRedirect = redirect => {
-    return dispatch => {
+const loginAndRedirect = (redirect:any) => {
+    return (dispatch:any) => {
         dispatch({
             type: SET_REDIRECT,
             redirect
@@ -53,8 +53,8 @@ const loginAndRedirect = redirect => {
     }
 }
 
-const sendResetEmail = (email) => {
-    return async (dispatch) => {
+const sendResetEmail = (email:string) => {
+    return async (dispatch:any) => {
         try {
             const fullEmail = email + '@g.ucla.edu';
 
@@ -79,13 +79,13 @@ const sendResetEmail = (email) => {
             //     dispatch(push("/forget-password/pending"));
             // }
         } catch (error) {
-            dispatch(notify({title: 'Error!', status: 'error', message: 'There was an error sending the email', position: 'tc'}));
+            dispatch(notify({title: 'Error!', status: 'error', message: 'There was an error sending the email', position: 'top-center'}));
         }
     }
 }
 
-const resetPassword = (password, passwordCode, userId) => {
-    return async (dispatch) => {
+const resetPassword = (password:string, passwordCode:string, userId:number) => {
+    return async (dispatch:any) => {
         try {
             const response = await fetch(Config.API_URL + '/password/', {
                 method: 'POST',
@@ -110,13 +110,13 @@ const resetPassword = (password, passwordCode, userId) => {
             //     dispatch(push("/login"));
             // }
         } catch (error) {
-            dispatch(notify({title: 'Error!', status: 'error', message: 'There was an error changing the password', position: 'tc'}));
+            dispatch(notify({title: 'Error!', status: 'error', message: 'There was an error changing the password', position: 'top-center'}));
         }
     }
 }
 
-const login = (email, password) => {
-    return async (dispatch) => {
+const login = (email:string, password:string) => {
+    return async (dispatch:any) => {
         try {
             dispatch(startLogin());
             email = email + "@g.ucla.edu";
@@ -149,39 +149,39 @@ const login = (email, password) => {
             }
         } catch (error) {
             // handle errors here
-            dispatch(notify({title: 'Error!', status: 'error', message: 'There was an error logging in', position: 'tc'}));
+            dispatch(notify({title: 'Error!', status: 'error', message: 'There was an error logging in', position: 'top-center'}));
             dispatch(loginFailure());
         }
     }
 }
 
 const defaultState = () => {
-    const token = Storage.get('token');
+ const token = Storage.get('token');
 
-    return Immutable.fromJS({
-        authenticated: !!token,
-        loading: false,
-        redirect: null,
-        error: null
-    });
+ return Immutable.fromJS({
+     authenticated: !!token,
+     loading: false,
+     redirect: null,
+     error: null
+ });
 }
 
-const Login = (state = defaultState(), action) => {
+const Login = (state = defaultState(), action:any) => {
     switch (action.type) {
         case START_LOGIN: {
-            return state.withMutations(val => {
+            return state.withMutations((val:any) => {
                 val.set('loading', true);
             });
         }
         case LOGIN_SUCCESS: {
-            return state.withMutations(val => {
+            return state.withMutations((val:any) => {
                 val.set('authenticated', true);
                 val.set('loading', false);
                 val.set('error',null);
             })
         }
         case LOGIN_FAILURE: {
-            return state.withMutations(val => {
+            return state.withMutations((val:any) => {
                 val.set('authenticated',false);
                 val.set('loading', false);
                 val.set('error', true);
@@ -189,12 +189,12 @@ const Login = (state = defaultState(), action) => {
         }
         case LOGOUT: {
             Storage.remove("token");
-            return state.withMutations(val => {
+            return state.withMutations((val:any) => {
                 val.set('authenticated', false);
             })
         }
         case SET_REDIRECT: {
-            return state.withMutations(val => {
+            return state.withMutations((val:any) => {
                 val.set('redirect', action.redirect);
             })
         }

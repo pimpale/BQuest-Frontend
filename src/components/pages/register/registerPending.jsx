@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
-import { replace,push } from 'react-router-redux';
+import { replace,push } from 'connected-react-router';
 
 class RegisterPending extends React.Component {
     render() {
