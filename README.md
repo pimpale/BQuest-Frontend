@@ -1,16 +1,16 @@
-# PickMyBruin - Front end
+# BQuest - Front end
 
 built with:
 * React.js + Redux
-* Webpack
+* Create React App
 * scss
 
 ## setup (development)
 
 - clone the repository and `cd` in
-- `npm install` or `yarn` to install node modules
-- `make dev` to launch webpack-dev-server
-    - visit `localhost:8080`
+- `yarn` to install node modules
+- `yarn start` to launch dev server
+    - visit `localhost:3000`
 
 ## run inside a docker container
 
